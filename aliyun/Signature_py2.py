@@ -65,7 +65,7 @@ def my_ecs_action(action_name, **kwargs):
         params=paras,
     )
     ret = json.loads(res.text)
-    print json.dumps(ret, indent=2)
+    print json.dumps(response, indent=4).decode('unicode_escape')
 
 if __name__ == "__main__":
     my_ecs_action("DescribeInstanceTypeFamilies", RegionId='cn-beijing', Generation="ecs-1")
