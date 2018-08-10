@@ -80,6 +80,8 @@ def my_ecs_action(action_name, **kwargs):
     )
     ret = json.loads(res.text)
     print(json.dumps(ret, indent=2))
+# 如果有中文，json.dumps会显示unicode编码，可以用以下命令来显示出中文
+#    print(json.dumps(ret, indent=2).encode().decode('unicode_escape'))
 
 if __name__ == "__main__":
     my_ecs_action("DescribeInstanceTypeFamilies", RegionId='cn-beijing', Generation="ecs-1")
